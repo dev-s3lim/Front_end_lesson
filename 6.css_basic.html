@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>글꼴의 상대 크기</h2>
+        <!--별도의 설정이 없을 시 16px 가량-->
+        <!--body 자체가 현재 p의 부모-->
+        <p>부모 글꼴의 본래 크기</p>
+        <p>부모 글꼴의 1.5배 크기</p>
+        <p style="font-size: 150%;">부모 글꼴의 1.5배 크기</p>
+        <div style="font-size: 20;">
+            <!--부모 글꼴의 20px 크기-->
+            <!--글꼴 크기는 상대 크기로 하는 것이 좋음 (반응형)-->
+            <p>부모 글꼴의 20px 크기</p>
+            <p style="font-size: 150%;">자식 텍스트 부모 (부모 요소의 기준으로) 글꼴의 30px 크기</p>
+            <p style="font-size: 1.5em;">1.5em (배수) 된 자식 텍스트</p>
+        </div>
+        <!--디스플레이의 높이에 대한 비율 vh-->
+        <!--디스플레이의 너비에 대한 비율 vw-->
+        <p style="font-size: 10vh;">디스플레이 높이의 10% 크기</p>
+        <p style="font-size: 10vw;">디스플레이 너비의 10% 크기</p>
+    <h2>Margin, Border, Padding에 대한 개념</h2>
+    <!--Margin auto는 상하좌우로, place-content: center는 수직으로 padding을 균일하게(정렬)-->
+    <!--Text-align: center는 수평으로 padding을 균일하게(정렬)-->
+    <!--테이블 옮김때 margin: auto; 사용-->
+    <div style="border: 5px solid black; width: 400px; height : 200px; margin: auto; place-content: center; text-align: center;">
+        Margin, Border, Padding 실습
+    </div>
+
+    <table border="1" style="border-collapse: collapse; width: 400px; height: 200px; text-align: center; margin: auto; margin-top: 30px;">
+        <caption style="margin-bottom: 10px;">테이블 정렬</caption>
+        <thead>
+            <tr>
+                <th>컬럼1</th>
+                <th>컬럼2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                    <td>데이터1</td>
+                    <td>데이터2</td>
+                </tr>
+                <tr>
+                    <td>데이터1</td>
+                    <td>데이터2</td>
+                </tr> 
+            </tbody>
+    </table>
+</body>
+</html>

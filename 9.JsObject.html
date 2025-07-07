@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Object</title>
+
+    <script>
+        function showObject(){
+            let person = {name:"hong", email: "hong@naver.com", age: 30};
+            console.log(person);
+            console.log(person.name);
+            console.log(person['name']);
+
+            //object.keys(객체명) : 객체의 키를 배열형태로 전환
+            const keyArr = Object.keys(person);
+            for (let i =0; i<keyArr.length; i++){
+                console.log(person[keyArr[i]]);
+            }
+            keyArr.forEach(k=>console.log(person[k]));
+
+            //객체의 변경
+            person.age = 20;
+            console.log(person);
+        }
+        function makeObject(){
+            //Literal 방식
+            let person1 = {name:"hong", email: "hong@naver.com", age: 30};
+            //빈 객체 생성 후 키와 값을 직접 추가
+            let person2 = {};
+            person2.name = "kim";
+            person2['email'] = "kim@naver.com"
+            person2.age = 30;
+            person2.password = "12345";
+
+            console.log(person2);
+
+            // 키와 밸류 값이 동일하게 사용될때 간편하게 객체 생성하는 방식
+            const name = "lee";
+            const age = 30;
+            const person3 = {name:name, age:age}; 
+            const person4 = {name, age}; //단축속성명방식 = {name:name, age:age};
+
+            const obj1 = {key1:"value1"};
+            const obj2 = {obj1}; // obj2 = {obj:{key1:"value1"}};
+            console.log(obj2);
+
+            //스프레드 문법
+            const obj3 = {a:2}; // 중복된 키 제거
+            const obj4 = {...obj3, c:3}; // 올바른 변수명 사용
+            console.log(obj4);
+
+            const arr1 = [1,2,3];
+            const arr2 = [...arr1, 4,5];    
+            console.log(arr2);
+        }
+
+    </script>
+
+</head>
+<body>
+    <h2>javascript 객체</h2>
+
+    <button onclick = "showObject()">객체조회</button>
+
+    <h2>javascript 객체 생성</h2>
+
+    <button onclick = "makeObject()">객체생성</button>
+</body>
+</html>

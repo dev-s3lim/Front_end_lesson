@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+            <a href="" class ="navbar-brand mx-auto">회원가입</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="../Author/AuthorList.html">회원 목록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Post/PostList.html">게시글 목록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Author/AuthorReg.html">회원가입</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="container" style="padding-top: 22px;">
+        <h2>회원가입</h2>
+        <p style="margin-top: 20px; margin-bottom: 40px;"> - 회원가입 페이지입니다. - </p>
+        <div class="container">
+            <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="name" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="name" placeholder="이름을 입력하세요">
+                </div>
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="email" class="form-label">이메일</label>
+                    <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요">
+                </div>
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="password" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+                <div style="margin-top: 20px;">
+                <a href="../Author/AuthorList.html" class="btn btn-primary" style="padding: 5px 30px; margin-right: 10px;">
+                    제출
+                </a>
+                <button type="reset" class="btn btn-secondary" style="padding: 5px 21px;">
+                    초기화
+                </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
