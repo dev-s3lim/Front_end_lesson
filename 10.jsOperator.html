@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Operator</title>
+</head>
+
+<script>
+    function biggerNum(a, b) {
+        const bigger = a > b ? a : b;
+        console.log()
+        document.getElementById("p1").innerHTML = bigger;
+    }
+
+    function stringCompare() {
+        const x = "abc";
+        const y = "bcd";
+        console.log(x<y);
+    }
+</script>
+
+<body>
+    <h2>연산자 예시</h2>
+        <button onclick="biggerNum(3, 4)">삼항연산자 결과</button>
+    <p id="p1">결과값</p>
+
+    <button onclick = "stringCompare()">문자비교 결과</button>
+
+    <h2>Void 연산자</h2>
+    <!-- a 태그에서 href는 link연결 시 사용하는데, 아무런 동작도 하지 않기위해서 void 처리, 그냥 비워도 되는데 명시적으로 넣어놓음-->
+    <a href="javascript:void(0)">클릭1</a>
+</body>
+</html>

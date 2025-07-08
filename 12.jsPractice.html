@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+</head>
+<!--select 박스로 덧셈, 곱셉, 뺄셈, 나눗셈 선택
+실행 버튼을 누르면 결과값이 출력되어야 함 (실행되는 순간, 결과값은 실시간으로 변경되어야 함)-->
+<body>
+    <select id="calculator">
+        <option value="add">덧셈</option>
+        <option value="subtract">뺄셈</option>
+        <option value="multiply">곱셈</option>
+        <option value="divide">나눗셈</option>
+    </select>
+    <input id="num1" placeholder="숫자를 입력하세요.">
+    <input id="num2" placeholder="숫자를 입력하세요.">
+    <button onclick="calculate()">계산</button>
+
+    <p id="result"></p>
+
+</body>
+</html> 
+
+<script>
+    function calculate() {
+        const cal = document.getElementById("calculator").value;
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+
+        let result = 0;
+        if(cal == "add") {
+            result = num1 + num2;
+        }
+        else if(cal == "subtract") {
+            result = num1 - num2;
+        }
+        else if(cal == "multiply") {
+            result = num1 * num2;
+        }
+        else if(cal == "divide") {
+            if(num2 === 0) {
+                alert("0으로 나눌 수 없습니다.");
+                return;
+            }
+            result = num1 / num2;
+        }
+        else {
+            alert("유효하지 않은 선택입니다.");
+        }
+        document.getElementById("result").innerText = "결과: " + result;
+    }
+</script>

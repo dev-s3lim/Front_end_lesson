@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 처리방법</title>
+</head>
+<body>
+    <table border ="1" style="border-collapse: collapse; margin:auto;">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="name2"></td>
+                <td id="age2"></td>
+                <td id="score2"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table border ="1" style="border-collapse: collapse;" margin="auto">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>score</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyId">
+            <tr>
+                <td id="name"></td>
+                <td id="age"></td>
+                <td id="score"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    const jsonText = '{"name":"Alice","age":25,"score":85}';
+    //JSON을 javascript 객체로 역직렬화 (parsing)
+    const obj1 = JSON.parse(jsonText);
+    console.log(obj1);
+    document.getElementById("name").innerText = obj1.name;
+    document.getElementById("age").innerText = obj1.age;
+    document.getElementById("score").innerText = obj1.score;
+
+    //JSON을 javascript 객체로 역직렬화 (parsing)
+    const jsonText2 = '[{"name":"Alice","age":25,"score":85},{"name":"Bob","age":28,"score":92},{"name":"Charlie","age":32,"score":88}]';
+    const obj2 = JSON.parse(jsonText2);
+    // tbody의 내용을 먼저 비워줍니다.
+    document.getElementById("tbodyId").innerHTML = "";
+    for(let i = 0; i < obj2.length; i++) {
+        // js에서 문자열에 js 변수를 끼워넣을 때 빽틱(`)에 ${}를 사용
+        const html = `<tr><td>${obj2[i].name}</td><td>${obj2[i].age}</td><td>${obj2[i].score}</td></tr>`;
+        document.getElementById("tbodyId").innerHTML += html;
+    }
+    //JSON을 문자열로 직렬화 (stringify)
+    const jsonText3 = JSON.stringify(obj2);
+    console.log(jsonText3);
+</script>
