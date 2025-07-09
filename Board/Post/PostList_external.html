@@ -26,12 +26,12 @@
     <div class="container">
         <h3>게시글 목록</h3>
         <div class="float-end">
-            <button onclick="location.href='../post/PostReg.html'" class="btn btn-primary">글쓰기</button>
+            <a href="../post/post_register.html" class="btn btn-primary">글쓰기</a>
         </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>id</th><th>title</th>
+                    <th>id</th><th>userId</th><th>title</th>
                 </tr>
             </thead>
             <tbody id="tbodyId">
@@ -40,11 +40,10 @@
     </div>
     <script>
         async function postApiMultiData(){
-            const response = await axios.get("http://localhost:8080/post/list");
+            const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
             const result = response.data;
             for(let i=0; i<result.length; i++){
-                // Change 'userId' to the correct property name from your API response, e.g., 'authorId' or 'username'
-                const html = `<tr><td>${result[i].id}</td><td>${result[i].title}</td></tr>`;
+                const html = `<tr><td>${result[i].id}</td><td>${result[i].userId}</td><td>${result[i].title}</td></tr>`;
                 document.getElementById("tbodyId").innerHTML += html;
             }
         }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Axios</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button onclick="postApiSingle()">단건 데이터 호출</button>
+    <button onclick="postApiMultiple()">리스트 데이터 호출</button>
+</body>
+</html>
+
+<script>
+    // 단건 데이터 호출
+    // axios.get()은 Promise를 반환하므로, 비동기적으로 데이터를 처리할 수 있다. (기본적으로 비동기적 함수)
+    // json을 즉시 parsing 해서 객체로 변환하는 기능이 내장되어 있다.
+    async function postApiSingle() {
+        const result = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+        console.log(result.data);
+    }
+
+    // 리스트 데이터 호출
+    async function postApiMultiple() {
+        const result = await axios.get('https://jsonplaceholder.typicode.com/posts/');
+        console.log(result.data);
+    }
+</script>
