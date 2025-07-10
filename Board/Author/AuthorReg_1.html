@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
+            <a href="" class ="navbar-brand mx-auto">회원가입</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="../Author/AuthorList.html">회원 목록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Post/PostList.html">게시글 목록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Author/AuthorReg.html">회원가입</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="container" style="padding-top: 22px;">
+        <h2>회원가입</h2>
+        <p style="margin-top: 20px; margin-bottom: 40px;"> - 회원가입 페이지입니다. - </p>
+        <div class="container">
+            <form>
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="name" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="name" placeholder="이름을 입력하세요">
+                </div>
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="email" class="form-label">이메일</label>
+                    <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요">
+                </div>
+                <div class="mb-3" style="max-width: 400px;">
+                    <label for="password" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+                <div style="margin-top: 20px;">
+                <button type="button" onclick="authorRegData()" class="btn btn-primary" style="padding: 5px 30px; margin-right: 10px;">
+                    제출
+                </button>
+                <button type="reset" class="btn btn-secondary" style="padding: 5px 21px;">
+                    초기화
+                </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        async function authorRegData() {
+            // 객체 조립 및 태그에 값 추출 (.value)
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;            
+            const authorData = {
+                name: name,
+                email: email,
+                password: password
+            };
+            try{
+                await axios.post("http://localhost:8080/author/register1", authorData);
+                alert("!!회원가입에 성공했습니다!!!");
+                window.location.href = "../Author/AuthorList.html";
+            } catch (e) {
+                console.log(e);
+                alert("!!!회원가입에 실패했습니다!!!");
+            }
+        }
+    </script>
+</body>
+</html>
